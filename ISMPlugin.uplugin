@@ -1,0 +1,20 @@
+{
+	"FileVersion" : 3,
+
+	"FriendlyName" : "Instanced Static Mesh Plugin",
+	"Version" : 1,
+	"VersionName" : "1.0",
+	"CreatedBy" : "Axtel Sturnclaw",
+	"CreatedByURL" : "http://web-eworks.com",
+	"EngineVersion" : "4.10.0",
+	"Description" : "A plugin implementation of Rama's level editor based Instanced Static Mesh Actor creation.",
+	"Category" : "Editor",
+
+	"Modules" :
+	[
+		{
+			"Name" : "ISMPlugin",
+			"Type" : "Editor"
+		}
+	]
+}
