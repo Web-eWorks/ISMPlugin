@@ -120,6 +120,11 @@ void FISMCreator::CreateInstancedStaticMeshFromSelection()
 			RootSMC = EachSMA->GetStaticMeshComponent();
 		}
 
+		else if(EachSMA->GetStaticMeshComponent()->StaticMesh != RootSMC->StaticMesh){
+			//Not the same mesh.
+			continue;
+		}
+
 		//Add
 		InstanceTransforms.Add(EachSMA->GetTransform());
 
