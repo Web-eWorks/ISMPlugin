@@ -5,6 +5,7 @@
 #include "ISMPluginPrivatePCH.h"
 #include "UnrealEd.h"
 #include "ISMCreator.h"
+#include "ISMActor.h"
 #include "ScopedTransaction.h"
 
 #define LOCTEXT_NAMESPACE "ISMCreator"
@@ -51,21 +52,18 @@ AActor* FISMCreator::CreateInstancedStaticMeshActor( UStaticMeshComponent* Stati
 	SpawnInfo.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 	SpawnInfo.bDeferConstruction 	= false;
 
-	AActor* NewISMA = StaticMeshComponent->GetWorld()->SpawnActor<AActor>(
-		AActor::StaticClass(),
-		StaticMeshComponent->GetComponentLocation() , StaticMeshComponent->GetComponentRotation(), SpawnInfo
+	AISMActor* NewISMA = StaticMeshComponent->GetWorld()->SpawnActor<AISMActor>(
+		AISMActor::StaticClass(),
+		StaticMeshComponent->GetComponentLocation(),
+		StaticMeshComponent->GetComponentRotation(),
+		SpawnInfo
 	);
 
-	//Add Component
-	UInstancedStaticMeshComponent* NewISMC =
-		NewObject<UInstancedStaticMeshComponent>( NewISMA, UInstancedStaticMeshComponent::StaticClass(), FName("InstancedStaticMeshComponent0"));
+	check(NewISMA);
+	check(NewISMA->ISMComp);
 
-	check(NewISMC);
-	NewISMC->RegisterComponent();
-	NewISMA->SetRootComponent(NewISMC);
-	NewISMC->SetWorldLocation(StaticMeshComponent->GetComponentLocation());
-	NewISMC->SetWorldRotation(StaticMeshComponent->GetComponentRotation());
-	//Scale comes individually for each instance from the InstanceTransforms.
+	//Get Component
+	UInstancedStaticMeshComponent* NewISMC = NewISMA->ISMComp;
 
 	//Mesh
 	NewISMC->SetStaticMesh(StaticMeshComponent->StaticMesh);
@@ -89,6 +87,9 @@ AActor* FISMCreator::CreateInstancedStaticMeshActor( UStaticMeshComponent* Stati
 			NewISMC->AddInstance(EachInstanceTransform);
 		}
 	}
+
+	NewISMC->SetMobility(StaticMeshComponent->Mobility);
+	NewISMC->Modify();
 
 	return NewISMA;
 }
