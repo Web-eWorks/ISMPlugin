@@ -1,7 +1,7 @@
 // Copyright 1998-2015 Epic Games, Inc. All Rights Reserved.
+// Created by Axtel Sturnclaw.
 
 #include "ISMPluginPrivatePCH.h"
-#include "ModuleManager.h"
 #include "ISMActions.h"
 #include "LevelEditor.h"
 
