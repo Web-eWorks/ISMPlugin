@@ -162,7 +162,7 @@ void FISMCreator::CreateInstancedStaticMeshFromSelection()
 	//Set Folder
 	NewISMA->SetFolderPath(RootSMC->GetOwner()->GetFolderPath());
 
-	// NewISMA->
+	FActorLabelUtilities::SetActorLabelUnique(NewISMA, FString::Printf(TEXT("ISM_%s"), *RootSMC->StaticMesh->GetName()));
 
 	//ISM fully created
 	NewISMA->Modify();
