@@ -3,11 +3,12 @@
 
 #pragma once
 
+#include "EngineMinimal.h"
 #include "Components/InstancedStaticMeshComponent.h"
 #include "ISMActor.generated.h"
 
 UCLASS()
-class AISMActor : public AActor
+class ISMCORE_API AISMActor : public AActor
 {
   GENERATED_BODY()
 

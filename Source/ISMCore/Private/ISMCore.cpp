@@ -1,6 +1,6 @@
 // Copyright 1998-2015 Epic Games, Inc. All Rights Reserved.
 // Created by Axtel Sturnclaw.
 
-#pragma once
+#include "ISMCore.h"
 
-#include "IISMPlugin.h"
+IMPLEMENT_MODULE( IISMCore, ISMCore )

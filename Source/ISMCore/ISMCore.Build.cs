@@ -3,12 +3,12 @@
 
 namespace UnrealBuildTool.Rules
 {
-	public class ISMPlugin : ModuleRules
+	public class ISMCore : ModuleRules
 	{
-		public ISMPlugin(TargetInfo Target)
+		public ISMCore(TargetInfo Target)
 		{
-
-			PrivateIncludePaths.Add("ISMPlugin/Private");
+			PublicIncludePaths.Add("ISMCore/Public");
+			PrivateIncludePaths.Add("ISMCore/Private");
 
 			PublicDependencyModuleNames.AddRange(
 				new string[]
@@ -16,18 +16,12 @@ namespace UnrealBuildTool.Rules
 					"Core",
 					"CoreUObject",
           "Engine",
-					"ISMCore",
 				}
 				);
 
 			PrivateDependencyModuleNames.AddRange(
 				new string[]
 				{
-					"UnrealEd",
-					"Slate",
-					"InputCore",
-					"LevelEditor",
-					"EditorStyle",
 				}
 				);
 

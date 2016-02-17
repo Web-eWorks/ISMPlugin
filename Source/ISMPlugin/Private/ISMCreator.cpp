@@ -162,6 +162,8 @@ void FISMCreator::CreateInstancedStaticMeshFromSelection()
 	//Set Folder
 	NewISMA->SetFolderPath(RootSMC->GetOwner()->GetFolderPath());
 
+	// NewISMA->
+
 	//ISM fully created
 	NewISMA->Modify();
 

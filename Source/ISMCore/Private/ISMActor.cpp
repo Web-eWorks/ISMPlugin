@@ -1,7 +1,7 @@
 // Copyright 1998-2015 Epic Games, Inc. All Rights Reserved.
 // Created by Axtel Sturnclaw
 
-#include "ISMPluginPrivatePCH.h"
+#include "ISMCore.h"
 #include "ISMActor.h"
 
 AISMActor::AISMActor()

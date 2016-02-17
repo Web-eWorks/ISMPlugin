@@ -9,9 +9,15 @@
 	"EngineVersion" : "4.10.0",
 	"Description" : "A plugin implementation of Rama's level editor based Instanced Static Mesh Actor creation.",
 	"Category" : "Editor",
+	"EnabledByDefault" : true,
 
 	"Modules" :
 	[
+		{
+			"Name" : "ISMCore",
+			"Type" : "Runtime",
+			"LoadingPhase" : "PreDefault"
+		},
 		{
 			"Name" : "ISMPlugin",
 			"Type" : "Editor"
