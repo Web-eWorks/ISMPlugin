@@ -252,6 +252,8 @@ void FISMCreator::RevertSelectedInstancedStaticMeshes()
 				//Set Folder
 				EachSMA->SetFolderPath(EachSelectedActor->GetFolderPath());
 
+				FActorLabelUtilities::SetActorLabelUnique(EachSMA, *EachISMC->StaticMesh->GetName());
+
 				//Done
 				EachSMA->Modify();
 
