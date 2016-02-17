@@ -20,3 +20,5 @@ To use this plugin, simply clone the ISMProject folder into a UE4 C++ enabled pr
 ```
 And then compile the project.  From there, you can make it an engine-wide project by
 copying the ISMPlugin folder into your `Unreal Engine/4.xx/Engine/Plugins/Editor` folder.
+
+Alternatively, simply download the latest binary release and follow the instructions in the included README.txt.
