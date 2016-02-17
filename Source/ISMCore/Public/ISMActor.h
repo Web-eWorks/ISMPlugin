@@ -16,6 +16,6 @@ class ISMCORE_API AISMActor : public AActor
 
 public:
 
-  UPROPERTY(EditDefaultsOnly)
+  UPROPERTY(EditDefaultsOnly, Category = "Instanced Static Mesh")
   UInstancedStaticMeshComponent* ISMComp;
 };

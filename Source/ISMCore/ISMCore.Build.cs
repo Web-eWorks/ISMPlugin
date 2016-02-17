@@ -17,20 +17,7 @@ namespace UnrealBuildTool.Rules
 					"CoreUObject",
           "Engine",
 				}
-				);
-
-			PrivateDependencyModuleNames.AddRange(
-				new string[]
-				{
-				}
-				);
-
-			DynamicallyLoadedModuleNames.AddRange(
-				new string[]
-				{
-					// ... add any modules that your module loads dynamically here ...
-				}
-				);
+			);
 		}
 	}
 }
