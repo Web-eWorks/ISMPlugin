@@ -98,6 +98,10 @@ void FISMCreator::CreateInstancedStaticMeshFromSelection()
 {
 	const FScopedTransaction Transaction(LOCTEXT("CreateInstancedStaticMeshFromSelection", "Create Instanced Static Mesh Actor From Selected Actors"));
 
+	if(GEditor->GetSelectedActorCount() < 1){
+		return;
+	}
+
 	TArray<FTransform> InstanceTransforms;
 	TArray<AActor*> ToDestroy;
 
@@ -163,9 +167,10 @@ void FISMCreator::CreateInstancedStaticMeshFromSelection()
 
 	for(AActor* EachActorToDestroy : ToDestroy)
 	{
+		//Deselect actor to properly reset the tranform gizmo.
+		GEditor->SelectActor(EachActorToDestroy, false, true);
 		//This SMA is being destroyed, so save undo
 		EachActorToDestroy->Modify();
-
 		EachActorToDestroy->Destroy();
 	}
 
@@ -252,9 +257,11 @@ void FISMCreator::RevertSelectedInstancedStaticMeshes()
 				GEditor->SelectActor( EachSMA, true, true );
 			}
 
+			//Deselect actor to properly reset the tranform gizmo.
+			GEditor->SelectActor(EachSelectedActor, false, true);
+
 			//Prep for destroy
 			EachSelectedActor->Modify();
-
 			EachSelectedActor->Destroy();
 		}
 	}
